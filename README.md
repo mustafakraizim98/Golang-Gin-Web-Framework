@@ -80,5 +80,5 @@ func getMessageByParameters(sender, receiver string) (timeSlice, error) {
 }
 ```
 
-## A snapshot for POST request from Postman
+## A snapshot for POST request from Postman API Platform
 ![Screenshot 2022-09-25 145037](https://user-images.githubusercontent.com/113289516/192141953-58dbe65c-0216-4a47-a312-296e1af77dba.png)
