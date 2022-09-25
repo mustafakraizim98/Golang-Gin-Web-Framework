@@ -10,10 +10,11 @@ import (
 )
 
 type Message struct {
-	Sender      string    `json:"sender"`
-	Receiver    string    `json:"receiver"`
-	MessageBody string    `json:"message"`
-	CreatedAt   time.Time `json:"created_at"`
+	Sender      string    `json:"sender,omitempty" binding:"required"`
+	Receiver    string    `json:"receiver,omitempty" binding:"required"`
+	MessageBody string    `json:"message,omitempty" binding:"required"`
+	CreatedAt   time.Time `json:"created_at,omitempty"`
+	UpdatedAt   time.Time `json:"updated_at,omitempty"`
 }
 
 var messages = []Message{
@@ -22,6 +23,7 @@ var messages = []Message{
 		Receiver:    "Alice",
 		MessageBody: "Goodbye Alice.",
 		CreatedAt:   time.Now().Add(24 * time.Hour),
+		UpdatedAt:   time.Now().Add(24 * time.Hour),
 	},
 	{
 		Sender:      "Bob",
@@ -39,6 +41,7 @@ var messages = []Message{
 		Receiver:    "Alice",
 		MessageBody: "Hey Alice, That's a great thing to keep in touch with you.",
 		CreatedAt:   time.Now().Add(12 * time.Hour),
+		UpdatedAt:   time.Now().Add(12 * time.Hour),
 	},
 	{
 		Sender:      "Alice",
@@ -116,6 +119,8 @@ func postHttpRequestJson(context *gin.Context) {
 	if err := context.BindJSON(&newMessage); err != nil {
 		context.IndentedJSON(http.StatusBadRequest, gin.H{"response": "bad request"})
 	} else {
+		now := time.Now()
+		newMessage.CreatedAt, newMessage.UpdatedAt = now, now
 		messages = append(messages, newMessage)
 		context.IndentedJSON(http.StatusOK, newMessage)
 	}
