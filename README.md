@@ -19,12 +19,15 @@ You just need to test the request through JSON object, as shown below:
 ```
 
 ## Features of the project:
-- Gin Framework >>> `#0969DA` Done
-- Endpoint declaration >>> `#0969DA` Done
-- Validating response for status of requests >>> `#0969DA` Done
-- Passing parameters for GET request >>> `#0969DA` Done
-- Returns an array of objects with sender, receiver and message content in GET request >>> `#0969DA` Done
-- Chronological descending order >>> `#0969DA` Done
+```diff
++ Gin Framework >>> #Done
++ Endpoint declaration >>> #Done
++ Validating response for status of requests >>> #Done
++ Passing parameters for GET request >>> #Done
++ Returns an array of objects with sender, receiver and message content in GET request >>> #Done
++ Chronological descending order >>> #Done
++ Identifying the required parameters that POST request must have >>> #Done
+```
 
 ## The most advantage in the project:
 Using chronological to sort the object in a descending order based on the time and date of messages, a slice of code shown here:
