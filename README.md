@@ -9,6 +9,7 @@ Gin is a high-performance micro-framework that can be used to build web applicat
 
 ## To use POST request:
 You just need to test the request through JSON object, as shown below:
+> POST body: { sender: String, receiver: String, message: String } are required. Otherwise, the bad request will be returned
 ```
 {
     "sender": "Alice",
